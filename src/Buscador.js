@@ -8,7 +8,7 @@ function Buscador(props) {
     return (
         <>
             <input type='text' onChange={(e) => setFilter(e.target.value)}/>
-            <button value='BUSCAR' onClick={() => props.handleClicked(filter)}>BUSCAR</button> 
+            <button value={props.tipo} onClick={() => props.handleClicked(filter)}>{props.tipo}</button> 
         </>
     )
 }
