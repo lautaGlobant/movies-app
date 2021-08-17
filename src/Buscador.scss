@@ -1,0 +1,5 @@
+@import './BotonHeader';
+
+button {
+    @include Boton;
+}

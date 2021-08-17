@@ -1,0 +1,18 @@
+@mixin Boton {    
+    background-color: #380000;
+    color: #fff;
+    border: none;
+    padding: 5px;    
+}
+
+.BotonHeader {
+    button {
+        @include Boton;
+    }
+    margin: 5px;
+    transition: .5s;
+
+    &:hover{
+        transform: translateY(-5px);
+    }
+}

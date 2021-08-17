@@ -1,0 +1,7 @@
+$window_height: 100%;
+
+html, body, #root {
+    height: $window_height;
+    background-color: darkred;
+    color: white;
+}
