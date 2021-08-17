@@ -27,11 +27,9 @@ function App() {
   const [filter, setFilter] = useState();
   const [type, setType] = useState('ESTRENO');
 
-  console.log(creds);
-
   useEffect(() => {
       fetchMovies(filter, type)
-          .then((res) => {console.log(res); setMovies(res)})
+          .then((res) => setMovies(res))
   }, [filter])
 
   return (
