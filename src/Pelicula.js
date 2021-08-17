@@ -8,7 +8,6 @@ function Pelicula(props) {
 
             <div className='Detalle'>
                 <h2>{props.movie.title}</h2>
-
             </div>
             
         </div>
