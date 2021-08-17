@@ -1,19 +1,20 @@
 import Header from './Header';
 import Catalogo from './Catalogo';
 import './App.scss';
+import creds from './CONFIG.js';
 import { useEffect, useState } from 'react';
 
 const fetchMovies = async(filter, type) => {
   let URL = 'https://api.themoviedb.org/3/';
 
   if(type === 'ESTRENO'){
-    URL = URL + 'movie/upcoming?api_key=1a371fac988bd27ba1eaae71755a570f&language=en-US&page=1'; 
+    URL = URL + 'movie/upcoming?api_key='+ creds.api_key +'&language=en-US&page=1'; 
   }else if(type === 'SEARCH'){
-    URL = URL + 'search/movie?api_key=1a371fac988bd27ba1eaae71755a570f&language=en-US&query='+filter+'&page=1&include_adult=false';
+    URL = URL + 'search/movie?api_key='+ creds.api_key +'&language=en-US&query='+filter+'&page=1&include_adult=false';
   }else if(type === 'SERIES') {
-    URL = URL + 'tv/popular?api_key=1a371fac988bd27ba1eaae71755a570f&language=en-US&page=1';
+    URL = URL + 'tv/popular?api_key='+ creds.api_key +'&language=en-US&page=1';
   }else if(type === 'DISCOVER'){
-    URL = URL + 'discover/movie?api_key=1a371fac988bd27ba1eaae71755a570f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
+    URL = URL + 'discover/movie?api_key='+ creds.api_key +'&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
   }
 
   const movies = await fetch(URL);
@@ -25,6 +26,8 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [filter, setFilter] = useState();
   const [type, setType] = useState('ESTRENO');
+
+  console.log(creds);
 
   useEffect(() => {
       fetchMovies(filter, type)
